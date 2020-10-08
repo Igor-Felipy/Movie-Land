@@ -5,7 +5,7 @@ class Adm(db.Model):
     id = db.Column(db.Integer, prymary_key=True)
     username = db.Column(db.String(40),unique=True, nullable=False)
     password = db.Column(db.String(40),unique=True, nullable=False)
-    def __init__(self, username, password)
+    def __init__(self, username, password):
         self.username = username
         self.password = password
 
@@ -17,11 +17,13 @@ class Video(db.Model):
     genres = db.Column(db.String(50), nullable=False)
     serie_title = db.Column(db.String(120))
     link = db.Column(db.String(140), nullable=False)
-    def __init__(self,title,genres,serie_title,link)
+    image = db.Column(db.String(200),nullable=False)
+    def __init__(self,title,genres,serie_title,link,image):
         self.title = title
         self.genres = genres
         self.serie_title = serie_title
         self.link = link
+        self.image = image
 
 
 class Coments(db.Model):
