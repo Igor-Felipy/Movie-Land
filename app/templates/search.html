@@ -3,14 +3,15 @@
 {% block title %} {{super()}} - Searching... {% endblock %}
 
 {% block content %}
+{% for video in found %}
 <br>
 <div class="card mb-3">
-    <img class="card-img-top bg-dark text-white" src="..." alt="Card image cap">
+    <img class="card-img-top bg-dark text-white" src="{{ video.image }}" alt="Card image cap">
     <div class="card-body bg-dark text-white">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h5 class="card-title">{{ video.title }}</h5>
+      <p class="card-text">Movie description example </p>
     </div>
   </div>
-  <button type="button" class="btn btn-info">See</button>
-  <br>
+  <a href="/video/{{ video.id }}"></a><button type="button" class="btn btn-info">See</button></a>
+{% endfor %}
 {% endblock %}
