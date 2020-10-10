@@ -4,6 +4,7 @@ from flask import render_template, request, url_for, redirect
 from app.models.forms import Adm_form, New_adm_form, New_video_form
 from app.models.tables import Adm, Video
 
+
 @controller.route('/admin', methods=['GET','POST'])
 def admin():
     form = Adm_form()
@@ -18,6 +19,7 @@ def admin():
     else:
         return render_template("admin_login.html",form=form)
 
+
 @controller.route('/new_admin',methods=['GET','POST'])
 def new_admin():
     form = New_adm_form()
@@ -31,6 +33,7 @@ def new_admin():
             pass #add a flash message
     else:
         return render_template("new_admin.html", form=form)
+
 
 @controller.route('/new_movie', methods=['GET','POST'])
 def new_movie():
