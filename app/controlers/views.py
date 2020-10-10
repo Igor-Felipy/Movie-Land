@@ -4,14 +4,14 @@ from app.models.tables import Video
 
 @controller.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('index.html')
 
-@controller.route('/video/<int:id>')
+@controller.route('/video/<int:id>/')
 def video(id):
     video = Video.query.filter_by(id=id).first()
     return render_template('video.html',video=video)
 
-@controller.route('/list/<list>')
+@controller.route('/list/<list>/')
 def list(list):
     return render_template('list.html')
 

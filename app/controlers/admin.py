@@ -1,8 +1,13 @@
 from . import controller
-from app import db
-from flask import render_template, request, url_for, redirect
+from app import db, lm
+from flask import render_template, request, url_for, redirect, flash
 from app.models.forms import Adm_form, New_adm_form, New_video_form
 from app.models.tables import Adm, Video
+from flask_login import login_user,logout_user,current_user
+
+@lm.user_loader
+def load_user(id):
+    return User.query.filter_by(id=id).first()
 
 
 @controller.route('/admin', methods=['GET','POST'])
@@ -12,12 +17,18 @@ def admin():
         if form.validate_on_submit():
             user = Adm.query.filter_by(username=form.user.data).first()
             if user and user.password == form.password.data:
-                pass #login methods
+                login_user(user)
+                return redirect(url_for('index'))
             else:
                 #add a flash message
                 return redirect(url_for(admin))
     else:
         return render_template("admin_login.html",form=form)
+
+@controller.route('/logout/')
+def logout():
+    logout_user()
+    return redirect(url_for("index"))
 
 
 @controller.route('/new_admin',methods=['GET','POST'])
@@ -48,4 +59,4 @@ def new_movie():
         else:
             pass#add a flash message
     else:
-        return render_template('new_movie.html'form=form)
+        return render_template('new_movie.html',form=form)
