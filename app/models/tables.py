@@ -43,4 +43,3 @@ class Video(db.Model):
         self.genres = genres
         self.link = link
         self.image = image
-
