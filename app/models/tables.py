@@ -35,23 +35,12 @@ class Video(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), nullable=False)
     genres = db.Column(db.String(50), nullable=False)
-    serie_title = db.Column(db.String(120))
     link = db.Column(db.String(140), nullable=False)
     image = db.Column(db.String(200),nullable=False)
     
-    def __init__(self,title,genres,serie_title,link,image):
+    def __init__(self,title,genres,link,image):
         self.title = title
         self.genres = genres
-        self.serie_title = serie_title
         self.link = link
         self.image = image
 
-
-class Coments(db.Model):
-    __tablename__="Coments"
-    
-    id = db.Column(db.Integer, primary_key=True)
-    coment = db.Column(db.Integer)
-    
-    def __init__(self,coment):
-        self.coment = coment
