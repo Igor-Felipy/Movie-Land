@@ -10,7 +10,7 @@ def load_user(id):
     return User.query.filter_by(id=id).first()
 
 
-@controller.route('/admin', methods=['GET','POST'])
+@controller.route('/admin/', methods=['GET','POST'])
 def admin():
     form = Adm_form()
     if request.method == 'POST':
