@@ -1,5 +1,5 @@
 from . import controller
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from app.models.tables import Video
 
 @controller.route('/')
@@ -13,12 +13,15 @@ def video(id):
 
 @controller.route('/list/<list>/')
 def list(list):
-    return render_template('list.html')
+    video = Video.query.all()
+    return render_template('list.html',video=video)
 
 @controller.route('/search', methods=['POST'])
 def search():
     if request.method == 'POST':
         search_data = request.form.get('search')
-        search = "%{}%".format(search_data)
+        search = str(f"%{search_data}%")
         found = Video.query.filter(Video.title.like(search)).all()
-        return render_template('search.html',search=search,found=found)
+        return render_template('search.html',search=search_data,found=found)
+    else:
+        return redirect(url_for("index.html"))
