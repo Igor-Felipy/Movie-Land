@@ -1,6 +1,6 @@
 {% extends 'template.html' %}
 
-{% block title %} {{super()}} - Searching... {{search}} {% endblock %}
+{% block title %} {{super()}} - Searching... {{search_data}} {% endblock %}
 
 {% block content %}
 {% for video in found %}
@@ -12,6 +12,6 @@
       <p class="card-text">Movie description example </p>
     </div>
   </div>
-  <a href="/video/{{ video.id }}"></a><button type="button" class="btn btn-info">See</button></a>
+  <a href="/video/{{ video.id }}"><button type="button" class="btn btn-info">See</button></a>
 {% endfor %}
 {% endblock %}

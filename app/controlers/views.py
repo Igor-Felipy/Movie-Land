@@ -11,17 +11,17 @@ def video(id):
     video = Video.query.filter_by(id=id).first()
     return render_template('video.html',video=video)
 
-@controller.route('/list/<list>/')
-def list(list):
+@controller.route('/list/')
+def list():
     video = Video.query.all()
     return render_template('list.html',video=video)
 
 @controller.route('/search', methods=['POST'])
 def search():
     if request.method == 'POST':
-        search_data = request.form.get('search')
+        search_data = request.form.get("search") 
         search = str(f"%{search_data}%")
         found = Video.query.filter(Video.title.like(search)).all()
-        return render_template('search.html',search=search_data,found=found)
+        return render_template('search.html',search_data=search_data,found=found)
     else:
         return redirect(url_for("index.html"))
