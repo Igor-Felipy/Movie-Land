@@ -37,10 +37,11 @@ class Video(db.Model):
     genres = db.Column(db.String(50), nullable=False)
     link = db.Column(db.String(140), nullable=False)
     image = db.Column(db.String(200),nullable=False)
-    description = db.Column(db.String(400),nullable=False)
+    description = db.Column(db.String(400))
     
-    def __init__(self,title,genres,link,image):
+    def __init__(self,title,genres,link,image,description):
         self.title = title
         self.genres = genres
         self.link = link
         self.image = image
+        self.description = description
