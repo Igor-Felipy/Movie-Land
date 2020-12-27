@@ -13,8 +13,8 @@ def video(id):
 
 @controller.route('/list/')
 def list():
-    video = Video.query.all()
-    return render_template('list.html',video=video)
+    videos = Video.query.all()
+    return render_template('list.html',videos=videos)
 
 @controller.route('/search', methods=['POST'])
 def search():

@@ -3,13 +3,16 @@
 {% block title %} {{super()}} - list {% endblock %}
 
 {% block content %}
-<br>
-<div class="card mb-3">
-    <img class="card-img-top bg-dark text-white" src="..." alt="Card image cap">
-    <div class="card-body bg-dark text-white">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+{% for video in videos %}
+  <br>
+  <div class="card mb-3">
+      <img class="card-img-top bg-dark text-white" src="{{ video.image }}" alt="{{video.title}}">
+      <div class="card-body bg-dark text-white">
+        <h5 class="card-title">{{ video.title }}</h5>
+        <p class="card-text">Description: {{ video.description }}</p>
+        <p class="card-text">Genre: {{ video.genres }}</p>
+      </div>
+      <a href="/video/{{ video.id }}" class="btn btn-info" >See</button>
     </div>
-    <button type="button" class="btn btn-info">See</button>
-  </div>
+{% endfor %}
 {% endblock %}
