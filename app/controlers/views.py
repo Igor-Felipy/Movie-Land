@@ -20,7 +20,7 @@ def list():
 def search():
     if request.method == 'POST':
         search_data = request.form.get("search") 
-        search = str(f"%{search_data}%")
+        search = "%{}%".format(search_data)
         found = Video.query.filter(Video.title.like(search)).all()
         return render_template('search.html',search_data=search_data,found=found)
     else:
