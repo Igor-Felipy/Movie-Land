@@ -3,4 +3,21 @@
 {% block title %} {{super()}} - Index {% endblock %}
 
 {% block content %}
+<br><br>
+<h1 class="display-1 text-center" style="color: white;">Last Movies Addeds</h1>
+<br>
+
+<div class="card-columns">
+    {% for video in videos %}
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ video.title }}</h5>
+                <p class="card-text">{{ video.description }}</p>
+                <a href="/video/{{video.id}}" class="btn btn-primary">See</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}

@@ -4,7 +4,8 @@ from app.models.tables import Video
 
 @controller.route('/')
 def index():
-    return render_template('index.html')
+    videos = Video.query.order_by(Video.id.desc()).limit(20)
+    return render_template('index.html',videos=videos)
 
 @controller.route('/video/<int:id>/')
 def video(id):

@@ -3,15 +3,17 @@
 {% block title %} {{super()}} - Searching... {{search_data}} {% endblock %}
 
 {% block content %}
-{% for video in found %}
-<br>
-<div class="card mb-3">
-    <img class="card-img-top bg-dark text-white" src="{{ video.image }}" alt="Card image cap">
-    <div class="card-body bg-dark text-white">
-      <h5 class="card-title">{{ video.title }}</h5>
-      <p class="card-text">Movie description example </p>
-    </div>
-  </div>
-  <a href="/video/{{ video.id }}"><button type="button" class="btn btn-info">See</button></a>
-{% endfor %}
+<div class="card-columns">
+  {% for video in found %}
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+          <img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}">
+          <div class="card-body">
+              <h5 class="card-title">{{ video.title }}</h5>
+              <p class="card-text">{{ video.description }}</p>
+              <a href="/video/{{video.id}}" class="btn btn-primary">See</a>
+          </div>
+      </div>
+  {% endfor %}
+</div>
+
 {% endblock %}
