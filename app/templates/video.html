@@ -4,14 +4,21 @@
 
 {% block content %}
 <div class="container">
-    <h1 class=" text-white text-center display-2">Movie Title</h1>
+    <h1 class=" text-white text-center display-2">{{video.title}}</h1>
     <figure>
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/o6ytLPKscrU"></iframe>
+            <!-- https://player.vimeo.com/video/194197177 -->
+            <iframe class="embed-responsive-item" allowfullscreen="allowfullscreen" src="{{video.link}}"></iframe>
         </div>
     </figure>
-    <div class="mx-auto">
-        <button type="button" class="btn btn-light btn-lg">Take back</button>
+    <div class="mx-auto text-center">
+        <button type="button" class="btn btn-light btn-lg" onclick="window.history.back()">Take back</button>
+    </div>
+
+    <div class="mx-auto text-center">
+        <br>
+        <p class=" text-white text-center"> <strong> Description:</strong> {{video.description}}</p>
+        <p class=" text-white text-center"> <strong> Genrer:</strong> {{video.genres}}</p>
     </div>
 </div>
 {% endblock %}
