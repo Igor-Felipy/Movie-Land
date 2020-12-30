@@ -56,6 +56,23 @@
             </button>
           </form>
         </div>
+        {% if is_authenticated %}
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-white-50" href="/logout"
+                >Logout<span class="sr-only">(current)</span></a
+              >
+            </li>
+          </ul>
+        {% else %}
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-white-50" href="/admin"
+                >Login<span class="sr-only">(current)</span></a
+              >
+            </li>
+          </ul>
+        {% endif %}
       </nav>
 
       {% block content %} {% endblock %}
