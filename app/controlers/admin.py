@@ -51,7 +51,7 @@ def new_movie():
     form = New_video_form()
     if request.method == 'POST':
         if form.validate_on_submit():
-            NewVideoData = Video(form.title.data,form.genre.data,form.serie.data,form.link.data,form.image.data)
+            NewVideoData = Video(form.title.data,form.genre.data,form.link.data,form.image.data)
             db.session.add(NewVideoData)
             db.session.commit()
             #add a flash message
@@ -60,3 +60,19 @@ def new_movie():
             pass#add a flash message
     else:
         return render_template('new_movie.html',form=form)
+
+@controller.route('/edit/<int:id>', methods=['GET','POST'])
+def edit(id):
+    form = New_video_form()
+    video = Video.query.filter_by(id=id).first()
+    if request.method == "POST":
+        video.title = form.title.data
+        video.link = form.link.data
+        video.image = form.image.data
+        video.genre = form.genre.data
+        video.description = form.description.data
+        db.session.commit()
+        #add a flash message
+        return redirect(url_for('index'))
+    else:
+        return render_template('edit.html',form=form, video=video)

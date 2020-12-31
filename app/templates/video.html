@@ -13,6 +13,9 @@
     </figure>
     <div class="mx-auto text-center">
         <button type="button" class="btn btn-light btn-lg" onclick="window.history.back()">Take back</button>
+        {% if is_authenticated %}
+            <a href="/edit/{{ video.id }}" type="button" class="btn btn-light btn-lg" >Edit</a>
+        {% endif %}
     </div>
 
     <div class="mx-auto text-center">
