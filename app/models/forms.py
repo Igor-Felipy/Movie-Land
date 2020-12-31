@@ -14,7 +14,6 @@ class New_adm_form(FlaskForm):
 class New_video_form(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     genre = StringField('genre', validators=[DataRequired()])
-    serie_title = StringField('serie', validators=[DataRequired()])
     link = StringField('link', validators=[DataRequired()])
     image = StringField('Image', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
