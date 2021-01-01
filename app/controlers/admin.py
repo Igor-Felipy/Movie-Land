@@ -21,7 +21,7 @@ def admin():
                 return redirect(url_for('index'))
             else:
                 #add a flash message
-                return redirect(url_for(admin))
+                return redirect('https://google.com.br')#url_for('admin')
     else:
         return render_template("admin_login.html",form=form)
 
@@ -31,7 +31,7 @@ def logout():
     return redirect(url_for("index"))
 
 
-@controller.route('/new_admin',methods=['GET','POST'])
+@controller.route('/new_admin/',methods=['GET','POST'])
 def new_admin():
     form = New_adm_form()
     if request.method == 'Post':
@@ -46,7 +46,7 @@ def new_admin():
         return render_template("new_admin.html", form=form)
 
 
-@controller.route('/new_movie', methods=['GET','POST'])
+@controller.route('/new_movie/', methods=['GET','POST'])
 def new_movie():
     form = New_video_form()
     if request.method == 'POST':
@@ -61,7 +61,7 @@ def new_movie():
     else:
         return render_template('new_movie.html',form=form)
 
-@controller.route('/edit/<int:id>', methods=['GET','POST'])
+@controller.route('/edit/<int:id>/', methods=['GET','POST'])
 def edit(id):
     form = New_video_form()
     video = Video.query.filter_by(id=id).first()
