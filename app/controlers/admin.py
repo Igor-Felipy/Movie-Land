@@ -27,9 +27,11 @@ def admin():
 
 @controller.route('/logout/')
 def logout():
-    if is_authenticated:
+    if current_user.is_authenticated:
         logout_user()
         return redirect(url_for("index"))
+    else:
+        return redirect(url_for('admin'))
 
 
 @controller.route('/new_admin/',methods=['GET','POST'])
