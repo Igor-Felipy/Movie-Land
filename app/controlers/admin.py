@@ -15,20 +15,21 @@ def admin():
     form = Adm_form()
     if request.method == 'POST':
         if form.validate_on_submit():
-            user = Adm.query.filter_by(username=form.user.data).first()
+            user = Adm.query.filter_by(username=form.username.data).first()
             if user and user.password == form.password.data:
                 login_user(user)
-                return redirect(url_for('index'))
+                return redirect(url_for('new_movie'))
             else:
                 #add a flash message
-                return redirect('https://google.com.br')#url_for('admin')
+                return redirect(url_for('controller.admin'))
     else:
         return render_template("admin_login.html",form=form)
 
 @controller.route('/logout/')
 def logout():
-    logout_user()
-    return redirect(url_for("index"))
+    if is_authenticated:
+        logout_user()
+        return redirect(url_for("index"))
 
 
 @controller.route('/new_admin/',methods=['GET','POST'])

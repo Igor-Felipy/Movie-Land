@@ -69,18 +69,14 @@ body {
   <title>Admin Area</title>
 </head>
 <body class="text-center" style="background-color: #8c2727; height: 100vh;">
-    <form class="form-signin" action="/admin/" method="POST">
+    <form class="form-signin" action="" method="post">
+      {{ form.csrf_token }}
       <h1 class=" text-white text-center display-2">ML</h1>
       <h1 class="h3 mb-3 font-weight-normal" style="color: white;">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="user" name="user" class="form-control" placeholder="Email address" required autofocus>
+      {{ form.username(class="form-control", placeholder="User") }}
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label style="color: white;">
-          <input type="checkbox" value="remember-me" > Remember me
-        </label>
-      </div>
+      {{ form.password(class="form-control", placeholder="Password") }}
       <button class="btn btn-lg btn-light btn-block" type="submit">Sign in</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2020 <a href="https://github.com/Igor-Felipy"> Igor Felipy</a></p>
     </form>
