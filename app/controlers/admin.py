@@ -57,7 +57,7 @@ def new_movie():
         form = New_video_form()
         if request.method == 'POST':
             if form.validate_on_submit():
-                NewVideoData = Video(form.title.data,form.genre.data,form.link.data,form.image.data)
+                NewVideoData = Video(form.title.data,form.genre.data,form.link.data,form.image.data,form.description.data)
                 db.session.add(NewVideoData)
                 db.session.commit()
                 #add a flash message
