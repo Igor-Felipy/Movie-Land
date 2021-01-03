@@ -7,7 +7,7 @@ from flask_login import login_user,logout_user,current_user
 
 @lm.user_loader
 def load_user(id):
-    return User.query.filter_by(id=id).first()
+    return Adm.query.filter_by(id=id).first()
 
 
 @controller.route('/admin/', methods=['GET','POST'])
@@ -18,7 +18,7 @@ def admin():
             user = Adm.query.filter_by(username=form.username.data).first()
             if user and user.password == form.password.data:
                 login_user(user)
-                return redirect(url_for('new_movie'))
+                return redirect(url_for('controller.new_movie'))
             else:
                 #add a flash message
                 return redirect(url_for('controller.admin'))
@@ -49,7 +49,7 @@ def new_admin():
         else:
             return render_template("new_admin.html", form=form)
     else:
-        return redirect(url_for('controller.admin'))
+        return redirect(url_for('controller.controller.admin'))
 
 @controller.route('/new_movie/', methods=['GET','POST'])
 def new_movie():
@@ -61,7 +61,7 @@ def new_movie():
                 db.session.add(NewVideoData)
                 db.session.commit()
                 #add a flash message
-                return redirect(url_for('new_movie'))
+                return redirect(url_for('controller.new_movie'))
             else:
                 pass#add a flash message
         else:
@@ -88,3 +88,12 @@ def edit(id):
             return render_template('edit.html',form=form, video=video)
     else: 
         return redirect(url_for('controller.admin'))
+
+
+@controller.route('/test/user/<info>')
+@controller.route('/test/user', defaults={'info':None})
+def test_user(info):
+    i = Adm('teste2@gmail.com','teste')
+    db.session.add(i)
+    db.session.commit()
+    return 'OK'
