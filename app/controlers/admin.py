@@ -18,7 +18,7 @@ def admin():
             user = Adm.query.filter_by(username=form.username.data).first()
             if user and user.password == form.password.data:
                 login_user(user)
-                return redirect(url_for('controller.new_movie'))
+                return redirect(url_for('controller.index'))
             else:
                 #add a flash message
                 return redirect(url_for('controller.admin'))
@@ -29,7 +29,7 @@ def admin():
 def logout():
     if current_user.is_authenticated:
         logout_user()
-        return redirect(url_for("index"))
+        return redirect(url_for("controller.index"))
     else:
         return redirect(url_for('controller.admin'))
 
