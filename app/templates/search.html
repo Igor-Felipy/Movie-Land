@@ -6,14 +6,14 @@
 <br><br>
 <div class="card-columns">
   {% for video in found %}
-      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-          <img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}">
-          <div class="card-body">
-              <h5 class="card-title">{{ video.title }}</h5>
-              <p class="card-text">{{ video.description }}</p>
-              <a href="/video/{{video.id}}" class="btn btn-primary">See</a>
-          </div>
-      </div>
+  <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <img class="card-img-top" style="max-height: 130px;" src="{{ video.image }}" alt="{{ video.title }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ video.title }}</h5>
+        <p class="card-text" style=" max-width: 50ch;overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">{{ video.description }}</p>
+        <a href="/video/{{video.id}}" class="btn btn-primary">See</a>
+    </div>
+</div>
   {% endfor %}
 </div>
 
