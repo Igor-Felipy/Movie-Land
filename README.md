@@ -23,7 +23,6 @@ A movie website made with Flask, HTML5, CSS3 e Bootstrap4
 
 - CSS3
 
-- Werkzeug
 
 <h1>How to Run:</h1>
 
