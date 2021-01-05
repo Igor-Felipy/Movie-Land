@@ -12,7 +12,7 @@
         </div>
     </figure>
     <div class="mx-auto text-center">
-        <button type="button" class="btn btn-light btn-lg" onclick="window.history.back()">Take back</button>
+        <button type="button" class="btn btn-light btn-lg" onclick="window.history.back()">Return</button>
         {% if current_user.is_authenticated %}
             <a href="/edit/{{ video.id }}" type="button" class="btn btn-light btn-lg" >Edit</a>
         {% endif %}
@@ -24,4 +24,5 @@
         <p class=" text-white text-center"> <strong> Genrer:</strong> {{video.genres}}</p>
     </div>
 </div>
+<br><br><br><br><br>
 {% endblock %}
