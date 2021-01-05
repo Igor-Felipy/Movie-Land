@@ -6,20 +6,21 @@
 <h1 style="color: white; text-align: center; margin-top: 20px;">Editing the movie: {{ video.title }}</h1>
 <form action="" method="POST" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 50px;">
     {{ form.csrf_token }}
+
     <div class="form-group">
-        {{ form.title(class="form-control", value="{{ video.title}}", placeholder="Title") }}
+        {{ form.title(class="form-control", placeholder="Title") }}
     </div>
     <div class="form-group">
-        {{ form.genre(class="form-control", value="{{ video.genre }}", placeholder="Genre") }}
+        {{ form.genre(class="form-control",  placeholder="Genres") }}
     </div>
     <div class="form-group">
-        {{ form.link(class="form-control", value="{{ video.link }}", placeholder="Video Link") }}
+        {{ form.link(class="form-control", placeholder="Video Link") }}
     </div>
     <div class="form-group">
-        {{ form.image(class="form-control", value="{{ video.image}}", placeholder="Image") }}
+        {{ form.image(class="form-control", placeholder="Image") }}
     </div>
     <div class="form-group">
-        {{ form.description(class="form-control", value="{{ video.description }}", placeholder="Description") }}
+        {{ form.description(class="form-control", placeholder="Description") }}
     </div>
     <button type="submit" class="btn btn-light btn-lg">Send</button>
 </form>

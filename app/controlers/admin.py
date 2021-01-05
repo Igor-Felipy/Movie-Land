@@ -73,17 +73,17 @@ def new_movie():
 @controller.route('/edit/<int:id>/', methods=['GET','POST'])
 def edit(id):
     if current_user.is_authenticated:
-        form = New_video_form()
         video = Video.query.filter_by(id=id).first()
+        form = New_video_form(obj=video)
         if request.method == "POST":
             video.title = form.title.data
             video.link = form.link.data
             video.image = form.image.data
-            video.genre = form.genre.data
+            video.genres = form.genre.data
             video.description = form.description.data
             db.session.commit()
             #add a flash message
-            return redirect(url_for('index'))
+            return redirect(url_for('controller.index'))
         else:
             return render_template('edit.html',form=form, video=video)
     else: 
