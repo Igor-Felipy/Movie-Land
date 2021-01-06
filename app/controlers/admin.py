@@ -61,7 +61,7 @@ def new_movie():
                 db.session.add(NewVideoData)
                 db.session.commit()
                 #add a flash message
-                return redirect(url_for('controller.new_movie'))
+                return redirect(url_for('controller.index'))
             else:
                 pass#add a flash message
         else:
