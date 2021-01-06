@@ -44,6 +44,10 @@ A movie website made with Flask, HTML5, CSS3 e Bootstrap4
 
 
 
+<h1 align="center">All Movies</h1>
+  
+![All Movies](https://github.com/Igor-Felipy/Movie-Land/blob/main/readme_imgs/Movie-Land.png)
+
 <h1 align="center">Initial page</h1>
 
 ![Index_Page](https://github.com/Igor-Felipy/Movie-Land/blob/main/readme_imgs/index.png)
@@ -51,10 +55,6 @@ A movie website made with Flask, HTML5, CSS3 e Bootstrap4
 <h1 align="center">Movie Screen</h1>
 
 ![Movie_Page](https://github.com/Igor-Felipy/Movie-Land/blob/main/readme_imgs/movie_page.png)
-
-<h1 align="center">All Movies</h1>
-  
-![All Movies](https://github.com/Igor-Felipy/Movie-Land/blob/main/readme_imgs/all_movies.png)
 
 <h1 align="center">Login</h1>
 
